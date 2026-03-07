@@ -36,7 +36,7 @@
       <path d="m21 21-4.3-4.3"></path>
     </g>
   </svg>
-  <input type="search" required placeholder="Search" />
+  <input type="search" required placeholder="Search Issue" />
 </label>
         </div>
         <button class="btn btn-primary">+New Issue</button>
@@ -45,9 +45,9 @@
     <main  class="w-10/12 mx-auto mt-11">
      <!-- buton section  -->
       <section class="shadow-sm rounded-sm px-4 py-2 mb-5">
-        <button onclick="filterCards(this)" class="filter-btn btn-primary btn btn-outline ">All</button>
-        <button onclick="filterCards(this)" class="filter-btn btn-primary btn btn-outline">Open</button>
-        <button onclick="filterCards(this)" class="filter-btn btn-primary btn btn-outline">Closed</button>
+        <button onclick="filterCards(this,'all')" class="filter-btn btn-primary btn  ">All</button>
+        <button onclick="filterCards(this,'open')" class="filter-btn btn-primary btn btn-outline">Open</button>
+        <button onclick="filterCards(this,'closed')" class="filter-btn btn-primary btn btn-outline">Closed</button>
       </section>
       <!-- issue section  -->
        <section  class="flex justify-between items-center shadow-sm rounded-sm px-4 py-2">

@@ -9,7 +9,7 @@ document.getElementById('login-btn').addEventListener('click',function(){
         //3-1-turue::>>homepage
         alert('Login Sucsess');
 
-        window.location.assign('./index.html');
+        window.location.assign('./home.html');
     }
     else{
         //3-2-flase::>>alart & return

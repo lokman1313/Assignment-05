@@ -10,7 +10,6 @@
       type="text/css"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="style.css" />
     <!-- font awsome -->
     <link
       rel="stylesheet"
@@ -64,16 +63,12 @@
           <p class="flex items-center gap-1 font-semibold"><span aria-label="error" class="status status-error"></span>Closed</p>
          </div>
 
-       </section>
-       
-       
+       </section>     
                   <!-- loding spinner -->
-           <div id="loding" class="flex h-[50vh] justify-center items-center col-span-full hidden">
-               <span class="loading loading-spinner loading-xl"></span>
-           </div>
+         <div id="loding" class="flex h-[50vh] justify-center items-center col-span-full hidden">
+             <span class="loading loading-spinner loading-xl"></span>
+         </div>
    
-       
-
       <!-- card containar --> 
        <section id="card-containar" class="grid md:grid-cols-4 gap-3 p-4 shadow-sm">      
 
@@ -122,7 +117,33 @@
 <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
 <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
   <div class="modal-box">
-    <div id="modal-body"> </div>
+    <div id="modal-body">
+     <div class="space-y-2">
+            <h2 class="text-2xl font-semibold">Fix broken image uploads</h2>  
+            <div class="flex gap-2">
+              <p class="rounded-full bg-success text-white w-fit px-2 font-semibold">Opened </p>
+              <p class="hidden rounded-full bg-error text-white w-fit px-2 font-semibold">Closed </p>
+              <p class="text-gray-500"> <span class="status status-neutral mb-1"></span> Opened by Fahim Ahmed</p>
+              <p class="text-gray-500"> <span class="status status-neutral mb-1"></span> 22/02/2026</p>             
+            </div>
+        </div>
+        <div>
+            <!-- bugs and others -->
+        </div>
+        <div>
+            <p class="text-gray-500">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
+        </div>
+        <div class="bg-slate-100 flex justify-evenly p-3 rounded-lg">
+            <div>
+                <p class="text-gray-600">Assignee:</p>
+                <p class="text-xl font-semibold">Fahim Ahmed</p>
+            </div>
+            <div>
+                <p class="text-gray-600">Priority:</p>
+                <div>haljkhhajfh</div>
+            </div>
+        </div>
+    </div>
     <div class="modal-action">
       <form method="dialog">
         <!-- if there is a button in form, it will close the modal -->

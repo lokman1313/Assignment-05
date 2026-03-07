@@ -24,7 +24,35 @@ const showIssueDeteils=(id)=>{
 const modalinfoDisplay=(details)=>{
   console.log(details)
   const deteilsContainar=document.getElementById("modal-body");
-  deteilsContainar.innerHTML="hello dear";
+  deteilsContainar.classList.add('space-y-3')
+  deteilsContainar.innerHTML=`
+   <div class="space-y-2">
+            <h2 class="text-2xl font-semibold">Fix broken image uploads</h2>  
+            <div class="flex gap-2">
+              ${statusText(details)}
+             
+              <p class="text-gray-500"> <span class="status status-neutral mb-1"></span> Opened by ${details.assignee}</p>
+              <p class="text-gray-500"> <span class="status status-neutral mb-1"></span>${details.createdAt}</p>             
+            </div>
+        </div>
+        <div class=" flex gap-2">
+            <!-- bugs and others -->
+            ${labelsShow(details.labels)}
+        </div>
+        <div>
+            <p class="text-gray-500">${details.description}</p>
+        </div>
+        <div class="bg-slate-100 flex justify-evenly p-3 rounded-lg">
+            <div>
+                <p class="text-gray-600">Assignee:</p>
+                <p class="text-xl font-semibold">${details.assignee}</p>
+            </div>
+            <div>
+                <p class="text-gray-600">Priority:</p>
+                <div>${statusBadge(details)}</div>
+            </div>
+        </div>
+  `;
   document.getElementById('my_modal_5').showModal();
 }
 
@@ -92,6 +120,18 @@ const statusIcone=(card)=>{
         }
         else{
           statusIcon=`<img class=" w-full" src="image/Closed- Status .png" alt="">`;
+        }
+        return statusIcon;
+}
+//function for status open and closed 
+const statusText=(card)=>{
+  //open-closed logic
+        let statusIcon='';
+        if(card.status === "open"){
+          statusIcon=`<p class="rounded-full bg-success text-white w-fit px-2 font-semibold">Opened </p>`;
+        }
+        else{
+          statusIcon=` <p class=" rounded-full bg-error text-white w-fit px-2 font-semibold">Closed </p>`;
         }
         return statusIcon;
 }

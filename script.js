@@ -11,17 +11,32 @@ const allCardFetch =()=>{
     endLoding();}
     )
 }
+
+//modal deteils display
+//deteis fetch
+const showIssueDeteils=(id)=>{
+   let url=`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`
+   fetch(url)
+   .then(res =>res.json())
+   .then((data)=>modalinfoDisplay(data.data))
+}
+//deteils display
+const modalinfoDisplay=(details)=>{
+  console.log(details)
+  const deteilsContainar=document.getElementById("modal-body");
+  deteilsContainar.innerHTML="hello dear";
+  document.getElementById('my_modal_5').showModal();
+}
+
 //all card display
-const allCardDisplay =(cards)=>{
-    // console.log(cards)
-    
+const allCardDisplay =(cards)=>{ 
     const parentDiv=document.getElementById("card-containar");
     parentDiv.innerHTML='';
     cards.forEach(card => {
         const childDiv=document.createElement('div');
 
         childDiv.innerHTML=`
-        <div class="card-bord shadow-sm border-t-4 ${colorOfBorder(card.priority)} rounded-md h-full">
+        <div onclick="showIssueDeteils(${card.id})" class="card-bord shadow-sm border-t-4 ${colorOfBorder(card.priority)} rounded-md h-full">
          <!-- card top stutas -->
             <div class="flex justify-between p-3">
               <!-- left side -->
@@ -33,7 +48,7 @@ const allCardDisplay =(cards)=>{
             </div>
             <!-- card text and discription   -->
              <div class="p-3">
-              <h2 class="text-xl font-bold">${card.title}</h2>
+              <h2 class="text-xl font-bold ">${card.title}</h2>
               <p class="line-clamp-2 text-gray-500">${card.description}</p>
              </div>
              <!-- bug enhansment and help needed badge -->

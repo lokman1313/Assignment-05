@@ -18,7 +18,7 @@
         <!-- left navber -->
         <div class="flex items-center gap-1">
             <img class="w-10" src="image/github-logo.png" alt="github icon">
-            <h1 class="text-2xl font-bold">GitHub Issues Tracker </h2>
+            <h1 class="text-2xl font-bold">GitHub Issues Tracker </h1>
         </div>
         <!-- right navber -->
         <div class="flex gap-2">
@@ -45,9 +45,9 @@
     <main  class="w-10/12 mx-auto mt-11">
      <!-- buton section  -->
       <section class="shadow-sm rounded-sm px-4 py-2 mb-5">
-        <button class="btn active-btn">All</button>
-        <button class="btn active-btn">Open</button>
-        <button class="btn active-btn">Closed</button>
+        <button onclick="filterCards(this)" class="filter-btn btn-primary btn btn-outline ">All</button>
+        <button onclick="filterCards(this)" class="filter-btn btn-primary btn btn-outline">Open</button>
+        <button onclick="filterCards(this)" class="filter-btn btn-primary btn btn-outline">Closed</button>
       </section>
       <!-- issue section  -->
        <section  class="flex justify-between items-center shadow-sm rounded-sm px-4 py-2">
@@ -57,7 +57,7 @@
             <img class=" w-8" src="image/Aperture.png " alt="">
           </div>
           <div>
-            <h2 class="text-lg font-bold"> <span>50</span> Issues</h2>
+            <h2 class="text-lg font-bold"> <span id="card-count">0</span> Issues</h2>
             <p class="text-gray-500 ">Track and manage your project issues</p>
           </div>
         </div>
@@ -111,6 +111,6 @@
        </section>
 
  </main>
-    <script src=""></script>
+    <script src="script.js"></script>
   </body>
 </html>

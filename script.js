@@ -1,11 +1,15 @@
+let allIssues=[];
+
 // all card fetch
-console.log('ok')
 const allCardFetch =()=>{
+  startLoding();
     fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
     .then(res => res.json())
     .then((data)=>{
       allIssues=data.data;
-      allCardDisplay(data.data)})
+      allCardDisplay(data.data)
+    endLoding();}
+    )
 }
 //all card display
 const allCardDisplay =(cards)=>{
@@ -15,7 +19,7 @@ const allCardDisplay =(cards)=>{
     parentDiv.innerHTML='';
     cards.forEach(card => {
         const childDiv=document.createElement('div');
-        
+
         childDiv.innerHTML=`
         <div class="card-bord shadow-sm border-t-4 ${colorOfBorder(card.priority)} rounded-md h-full">
          <!-- card top stutas -->
@@ -54,6 +58,15 @@ const allCardDisplay =(cards)=>{
       const cardLength=parentDiv.children.length;
       cardcount.innerText=cardLength;
 }
+
+//loding korar function
+const loding=document.getElementById("loding");
+    const startLoding =()=>{
+        loding.classList.remove('hidden');
+    }
+    const endLoding =()=>{
+        loding.classList.add('hidden');
+    }
 
 //function for status icon
 const statusIcone=(card)=>{
@@ -128,6 +141,7 @@ const labelsShow = (labels) => {
 
 //button togoling section 
 const filterCards=(everyBtn,catagoryId)=>{
+   startLoding();
   const allButton=document.querySelectorAll('.filter-btn');
   allButton.forEach(btn => {
   btn.classList.add('btn-outline')
@@ -139,11 +153,31 @@ const filterCards=(everyBtn,catagoryId)=>{
   //filtering er kaj kam
   if(catagoryId === "all"){
     allCardDisplay(allIssues);
+    endLoding();
   }
   else{
     const filtredCard=allIssues.filter(card => card.status === catagoryId);
-    allCardDisplay(filtredCard)
+    allCardDisplay(filtredCard);
+    endLoding();
   }
+
 };
 
 allCardFetch()
+
+
+//search button activetion
+document.getElementById("search-btn").addEventListener('click',()=>{
+  const inputValue =document.getElementById("search-input").value.trim().toLowerCase() ;
+  console.log(inputValue);
+
+  startLoding();
+  fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${inputValue}`)
+  .then(res => res.json())
+  .then((data)=>{
+    console.log(data.data)
+    const filterSurch=data.data;
+    allCardDisplay(filterSurch);
+    endLoding();
+  })
+})

@@ -11,6 +11,14 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="style.css" />
+    <!-- font awsome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
 
@@ -24,22 +32,11 @@
         <div class="flex gap-2">
             <div>
             <label class="input">
-  <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <g
-      stroke-linejoin="round"
-      stroke-linecap="round"
-      stroke-width="2.5"
-      fill="none"
-      stroke="currentColor"
-    >
-      <circle cx="11" cy="11" r="8"></circle>
-      <path d="m21 21-4.3-4.3"></path>
-    </g>
-  </svg>
-  <input type="search" required placeholder="Search Issue" />
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input id="search-input" type="search" required placeholder="Search Issue" />
 </label>
         </div>
-        <button class="btn btn-primary">+New Issue</button>
+        <button id="search-btn" class="btn btn-primary">+New Issue</button>
         </div>
     </nav>
     <main  class="w-10/12 mx-auto mt-11">
@@ -68,8 +65,18 @@
          </div>
 
        </section>
-      <!-- card containar -->
-       <section id="card-containar" class="grid md:grid-cols-4 gap-3 p-4 shadow-sm">
+       
+       
+                  <!-- loding spinner -->
+           <div id="loding" class="flex h-[50vh] justify-center items-center col-span-full hidden">
+               <span class="loading loading-spinner loading-xl"></span>
+           </div>
+   
+       
+
+      <!-- card containar --> 
+       <section id="card-containar" class="grid md:grid-cols-4 gap-3 p-4 shadow-sm">      
+
         <div class="shadow-sm border-t-3 border-green-700 rounded-md ">
           <!-- card top stutas -->
             <div class="flex justify-between p-3">

@@ -1,4 +1,4 @@
- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot. 
+ 
     - 1️⃣ What is the difference between var, let, and const?
     Answer: 1.var=var is the old way to declare variables. It is function-scoped, which means it can be accessed anywhere inside the function where it is declared.
     2.let=let is a modern way to declare variables. It is block-scoped, meaning it only works inside the block { } where it is defined.
